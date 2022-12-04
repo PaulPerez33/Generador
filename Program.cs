@@ -1,17 +1,32 @@
 ﻿using System;
+using System.IO;
+using System.Collections.Generic;
 
-namespace Generador{
-    public class Program{
-
-        static void Main(string[] args){
-            using(Lenguaje a = new Lenguaje()){
-                try{
-                    
-                }
-                catch(Exception e){
-                    Console.WriteLine(e.Message);
-                }
+namespace generador
+{
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+                crearInstancia();
+                GC.Collect();
+                Console.ReadLine();
             }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+        public static void crearInstancia()
+        {
+            Lenguaje a = new Lenguaje();
+            /*while(!a.FinArchivo())
+            {
+                a.NextToken();
+            }*/
+            a.gramatica();
         }
     }
 }

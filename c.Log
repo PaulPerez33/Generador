@@ -1,0 +1,51 @@
+Archivo: c.gram
+04/12/2022 11:10:12 a. m.
+Gramatica ST
+: ST
+c ST
+
+ FinProduccion
+Programa ST
+-> Produce
+# ST
+Identificador ST
+, ST
+Numero ST
+
+ FinProduccion
+Librerias ST
+-> Produce
+# ST
+include ST
+< ST
+stdio ST
+. ST
+h ST
+> ST
+
+ FinProduccion
+Variables ST
+-> Produce
+\( Pizq
+# ST
+include ST
+\) Pder
+
+ FinProduccion
+ListaIdentificadores ST
+-> Produce
+Caracter ST
+
+ FinProduccion
+Identificador ST
+-> Produce
+\( Pizq
+Cadena ST
+\) Pder
+
+ FinProduccion
+Numero ST
+-> Produce
+\( Pizq
+Caracter ST
+\) Pder

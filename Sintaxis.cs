@@ -1,27 +1,40 @@
 using System;
 
-namespace Generador{
-    public class Sintaxis : Lexico{
-        public Sintaxis(){
+namespace generador
+{
+    public class Sintaxis : Lexico
+    {
+        public Sintaxis()
+        {
+            NextToken();
+        }
+        public Sintaxis(string nombre) : base(nombre)
+        {
             NextToken();
         }
 
-        public Sintaxis(String ruta) : base(ruta) {
-            NextToken();
+        public void match(string espera)
+        {
+            if (espera == getContenido())
+            {
+                NextToken();
+            }
+            else
+            {
+                throw new Error("Error de sintaxis, se espera un " + espera + " en linea: " + linea, log);
+            }
         }
 
-        public void match(String espera){
-            if(espera == getContenido())
+        public void match(Tipos espera)
+        {
+            if (espera == getClasificacion())
+            {
                 NextToken();
+            }
             else
-                throw new Error("Error de sintaxis linea " +linea +": Se espera un " +espera +".", log);
-        }
-
-        public void match(tipos espera){
-            if(espera == getClasificacion())
-                NextToken();
-            else
-                throw new Error("Error de sintaxis linea " +linea +": Se espera un " +espera +".", log);
+            {
+                throw new Error("Error de sintaxis, se espera un " + espera + " en linea: " + linea, log);
+            }
         }
     }
 }
